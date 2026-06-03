@@ -23,13 +23,13 @@ jobs:
       - name: Build and push Flask API image
         uses: docker/build-push-action@v5
         with:
-          context: ./flask-api
+          context: ./app/flask-api
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/flask-api:latest
 
       - name: Build and push Nginx image
         uses: docker/build-push-action@v5
         with:
-          context: ./nginx
+          context: ./app/nginx
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/nginx-proxy:latest

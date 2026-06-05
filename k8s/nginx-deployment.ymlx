@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-api
+  name: nginx
   namespace: assignment3
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask-api
+      app: nginx
   template:
     metadata:
       labels:
-        app: flask-api
+        app: nginx
     spec:
       containers:
-        - name: flask-api
-          image: yameena/flask-api:latest
+        - name: nginx
+          image: YOUR_DOCKERHUB_USERNAME/nginx-proxy:latest
           ports:
-            - containerPort: 5000
+            - containerPort: 80
 

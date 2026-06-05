@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: assignment3
+
+data:
+  default.conf: |
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass http://flask-api:5000;
+        }
+
+        location /health {
+            proxy_pass http://flask-api:5000/health;
+        }
+    }
+
